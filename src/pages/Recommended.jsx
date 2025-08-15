@@ -10,7 +10,6 @@ export default function Recommended() {
     "./images/digital.png",
     "./images/help.png",
     "./images/house.png",
-    "./images/lifeaction.png",
     "./images/novotech.png",
     "./images/Rp.png",
     "./images/sign.png",
@@ -18,7 +17,7 @@ export default function Recommended() {
   ];
 
   return (
-    <Box bg="gray.50" py={12}>
+    <Box bg="gray.100" py={12}>
     <VStack spacing={8} align="center">
       <MotionHeading
             as="h2"

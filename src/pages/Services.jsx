@@ -1,9 +1,18 @@
-import { Box, Heading, Text, SimpleGrid, VStack, Icon, Flex } from "@chakra-ui/react";
+import { Box, Heading, Text, SimpleGrid, VStack, Icon, Flex, Button } from "@chakra-ui/react";
 import { FaUsers, FaClipboardCheck, FaHandshake, FaUserCog, FaSignOutAlt, FaSearch } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Link as RouterLink } from "react-router-dom";
 
 const MotionHeading = motion(Box);
+const MotionButton = motion(Button);
+
 export default function Services() {
+  const handleLearnMoreClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   const services = [
     {
       title: "Recruitment / Selection",
@@ -113,6 +122,25 @@ export default function Services() {
           </Box>
         ))}
       </SimpleGrid>
+      {/* Animated Button with Smooth Scroll */}
+      <Flex justify="center" align="center" mt={4}>
+        <MotionButton
+              as={RouterLink}
+              to="/services"
+              onClick={handleLearnMoreClick}
+              colorScheme="blue"
+              size="md"
+              mt={2}
+              whileHover={{
+                scale: 1.1,
+                boxShadow: "0px 4px 15px rgba(0, 0, 255, 0.3)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}         
+            >
+              Learn More
+        </MotionButton>
+      </Flex>
     </Box>
   );
 }

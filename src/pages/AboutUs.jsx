@@ -1,10 +1,19 @@
-import { Box, Heading, Text, Image, Flex } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, Flex, Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { Link as RouterLink } from "react-router-dom";
 
 const MotionBox = motion(Box);
 const MotionHeading = motion(Box);
+const MotionButton = motion(Button);
 
 export default function AboutUs() {
+  const handleLearnMoreClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <Box bg="gray.50" py={12}>
       <Flex
@@ -15,7 +24,7 @@ export default function AboutUs() {
         mx="auto"
         px={4}
       >
-        {/* Image Section - Slide from Left on Scroll */}
+        {/* Image Section */}
         <MotionBox
           flex="1"
           initial={{ x: -100, opacity: 0 }}
@@ -35,7 +44,7 @@ export default function AboutUs() {
           />
         </MotionBox>
 
-        {/* Text Section - Slide from Right on Scroll */}
+        {/* Text Section */}
         <MotionBox
           flex="1"
           initial={{ x: 100, opacity: 0 }}
@@ -52,20 +61,20 @@ export default function AboutUs() {
             bgClip="text"
             initial={{ backgroundPosition: "200% center" }}
             whileInView={{
-                backgroundPosition: ["200% center", "-200% center"],
-                transition: { duration: 3, ease: "linear", repeat: Infinity }
+              backgroundPosition: ["200% center", "-200% center"],
+              transition: { duration: 3, ease: "linear", repeat: Infinity }
             }}
             viewport={{ once: false }}
             sx={{
-                backgroundSize: "200% auto",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent"
+              backgroundSize: "200% auto",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
             }}
-      >
+          >
             About Us
           </MotionHeading>
 
-          <Text fontSize="md" color="gray.700" lineHeight="tall">
+          <Text fontSize="md" color="gray.700" lineHeight="tall" mb={4}>
             Treetop Consulting Ltd is a Strategic HR Consulting firm in Nigeria,
             with the aim of serving clients with practical HR solutions across
             all business sectors.
@@ -76,6 +85,24 @@ export default function AboutUs() {
             needs of clients and proffer feasible and affordable solutions to
             the overall growth of businesses.
           </Text>
+
+          {/* Animated Button with Smooth Scroll */}
+          <MotionButton
+            as={RouterLink}
+            to="/about"
+            onClick={handleLearnMoreClick}
+            colorScheme="blue"
+            size="md"
+            mt={2}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0px 4px 15px rgba(0, 0, 255, 0.3)",
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            Learn More
+          </MotionButton>
         </MotionBox>
       </Flex>
     </Box>
