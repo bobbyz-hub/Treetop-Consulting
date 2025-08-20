@@ -34,7 +34,7 @@ export default function AboutUs() {
           _hover={{ transform: "scale(1.05)", opacity: 0.95 }}
         >
           <Image
-            src="./images/showing-business.jpg"
+            src="./images/group-meeting.webp"
             alt="About Treetop Consulting"
             borderRadius="lg"
             boxShadow="lg"

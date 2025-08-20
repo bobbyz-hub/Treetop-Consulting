@@ -6,7 +6,6 @@ import {
   Stack,
   useColorModeValue,
   Image,
-  keyframes
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -16,69 +15,67 @@ import Services from "./Services";
 import AboutUs from "./AboutUs";
 import Recommended from "./Recommended";
 
-const MotionHeading = motion(Box);
+// Motion wrappers
+const MotionBox = motion(Box);
+const MotionStack = motion(Stack);
 
 export default function Home() {
   const navigate = useNavigate();
-
-  // Animations
-  const fadeInLeft = keyframes`
-    0% { opacity: 0; transform: translateX(-50px); }
-    100% { opacity: 1; transform: translateX(0); }
-  `;
-
-  const fadeInRight = keyframes`
-    0% { opacity: 0; transform: translateX(50px); }
-    100% { opacity: 1; transform: translateX(0); }
-  `;
 
   return (
     <>
       {/* Hero Section */}
       <Box
+        as="section"
         minH="100vh"
+        w="100%"
         bgGradient="linear(to-br, blue.50, white)"
         _dark={{ bgGradient: "linear(to-br, gray.800, gray.900)" }}
-        py={16}
+        overflowX="hidden"
       >
         <Flex
           direction={{ base: "column", md: "row" }}
           align="center"
           justify="space-between"
+          h="100vh"
+          px={{ base: 6, md: 12 }}
           maxW="1200px"
           mx="auto"
-          px={6}
-          gap={10}
+          gap={{ base: 0, md: 12 }}
         >
-          {/* Text Section */}
-          <Stack
+          {/* Left: Text with slide-in from left */}
+          <MotionStack
             spacing={6}
             flex="1"
-            animation={`${fadeInLeft} 0.8s ease-out`}
-            animationDelay="0s"
-            animationFillMode="both"
+            maxW={{ base: "100%", md: "45%" }}
+            textAlign={{ base: "center", md: "left" }}
+            zIndex={1}
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
-            <MotionHeading
-              as="h2"
-              textAlign="center"
-              fontSize="5xl"
+            <Box
+              as={motion.h2}
+              fontSize={{ base: "3xl", md: "5xl" }}
               fontWeight="bold"
               bgGradient="linear(to-r, blue.500, green.400, blue.500)"
               bgClip="text"
               initial={{ backgroundPosition: "200% center" }}
               whileInView={{
                 backgroundPosition: ["200% center", "-200% center"],
-                transition: { duration: 3, ease: "linear", repeat: Infinity }
+                transition: { duration: 3, ease: "linear", repeat: Infinity },
               }}
               viewport={{ once: false }}
               sx={{
                 backgroundSize: "200% auto",
                 WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent"
+                WebkitTextFillColor: "transparent",
               }}
             >
               Find Your Dream Job or Your Next Great Hire
-            </MotionHeading>
+            </Box>
+
             <Text
               fontSize="lg"
               color={useColorModeValue("gray.600", "gray.300")}
@@ -88,15 +85,24 @@ export default function Home() {
               to help you succeed.
             </Text>
 
-            <Stack direction={{ base: "column", sm: "row" }} spacing={4}>
+            <Stack
+              direction={{ base: "column", sm: "row" }}
+              spacing={4}
+              mb={4}
+              justify={{ base: "center", md: "flex-start" }}
+              flexWrap="wrap"
+              maxW="100%"
+            >
               <Button
                 size="lg"
                 colorScheme="blue"
                 onClick={() => navigate("/jobseeker")}
                 boxShadow="lg"
+                whiteSpace="normal"
+                textAlign="center"
                 _hover={{
                   transform: "translateY(-2px)",
-                  boxShadow: "xl"
+                  boxShadow: "xl",
                 }}
                 transition="all 0.3s ease"
               >
@@ -107,39 +113,42 @@ export default function Home() {
                 colorScheme="green"
                 onClick={() => navigate("/employer")}
                 boxShadow="lg"
+                whiteSpace="normal"
+                textAlign="center"
                 _hover={{
                   transform: "translateY(-2px)",
-                  boxShadow: "xl"
+                  boxShadow: "xl",
                 }}
                 transition="all 0.3s ease"
               >
                 Employer – Sign Up / Login
               </Button>
             </Stack>
-          </Stack>
+          </MotionStack>
 
-          {/* Image Section */}
-          <Box
-            flex={{ base: "1", md: "1.3" }}
+          {/* Right: Hero Image with slide-in from right */}
+          <MotionBox
+            flex="1"
+            w={{ base: "100%", md: "55%" }}
+            h={{ base: "300px", md: "90%" }}
             display="flex"
-            justifyContent="center"
             alignItems="center"
-            animation={`${fadeInRight} 0.8s ease-out`}
-            animationDelay="0.4s"
-            animationFillMode="both"
+            justifyContent="center"
+            overflow="hidden"
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
             <Image
-              src="images/about-us.png"
+              src="images/handshake.webp"
               alt="Recruitment illustration"
-              maxW={{ base: "100%", md: "115%" }}
-              h="auto"
-              objectFit="contain"
-              transform="scale(1.05)"
-              borderRadius="lg"
-              boxShadow="2xl"
-              transition="transform 0.3s ease, box-shadow 0.3s ease"
+              objectFit="cover"
+              borderRadius="xl"
+              w={{ base: "100%", md: "100%" }}
+              h="100%"
             />
-          </Box>
+          </MotionBox>
         </Flex>
       </Box>
 
@@ -151,4 +160,3 @@ export default function Home() {
     </>
   );
 }
-

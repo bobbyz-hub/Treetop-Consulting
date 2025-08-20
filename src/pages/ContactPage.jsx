@@ -57,7 +57,6 @@ import {
                 <Icon as={FaMapMarkerAlt} color="blue.500" boxSize={5} />
                 <Box>
                   <Text fontWeight="bold">Address</Text>
-                  <Text>28 Rainbow Drive, Oregun Road</Text>
                   <Text>Ikeja, Lagos Nigeria.</Text>
                 </Box>
               </HStack>

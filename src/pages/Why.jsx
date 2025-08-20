@@ -69,7 +69,7 @@ export default function Why() {
             viewport={{ once: true }}
           >
             <MotionImage
-              src="/images/treetop-building.png" 
+              src="/images/front-building.webp" 
               alt="Why Choose Us"
               borderRadius="lg"
               boxShadow="lg"
