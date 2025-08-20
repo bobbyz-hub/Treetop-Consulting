@@ -96,7 +96,7 @@ export default function Home() {
               <Button
                 size="lg"
                 colorScheme="blue"
-                onClick={() => navigate("/jobseeker")}
+                onClick={() => navigate("/jobseeker-auth")}
                 boxShadow="lg"
                 whiteSpace="normal"
                 textAlign="center"
@@ -111,7 +111,7 @@ export default function Home() {
               <Button
                 size="lg"
                 colorScheme="green"
-                onClick={() => navigate("/employer")}
+                onClick={() => navigate("/employer-auth")}
                 boxShadow="lg"
                 whiteSpace="normal"
                 textAlign="center"
