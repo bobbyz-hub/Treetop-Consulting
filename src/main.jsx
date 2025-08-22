@@ -15,7 +15,11 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import ErrorPage from "./pages/ErrorPage";
 import theme from "./theme";
-import App from "./App"; // Optional wrapper if you have a layout
+import App from "./App";
+import Testimonials from "./pages/Testimonials";
+import Blogs from "./pages/Blogs";
+import JobSeekerDashboard from "./pages/JobSeekerDashboard";
+import JobSeekerProfileDashboard from "./pages/JobSeekerProfileDashboard";
 
 // Create a single router with all routes
 const router = createBrowserRouter([
@@ -27,13 +31,18 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "jobseeker-auth", element: <JobSeekerAuth /> },
       { path: "employer-auth", element: <EmployerAuth /> },
-      { path: "jobseeker-profile", element: <JobSeekerProfile /> },
+      { path: "jobseeker-profilee", element: <JobSeekerProfile /> },
       { path: "employer-profile", element: <EmployerProfile /> },
       { path: "jobseeker", element: <JobSeekerForm /> },
       { path: "employer", element: <CompanyRequestForm /> },
       { path: "services", element: <ServicesPage /> },
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <ContactPage /> },
+      { path: "testimonials", element: <Testimonials /> },
+      { path: "blogs", element: <Blogs /> },
+      { path: "jobSeekerDashboard", element: <JobSeekerDashboard /> },
+      { path: "jobseeker-profile", element: <JobSeekerProfileDashboard /> },
+      { path: "jobseeker-dashboard", element: <JobSeekerProfileDashboard /> },
       { path: "*", element: <ErrorPage /> }, // Catch all invalid routes
     ],
   },

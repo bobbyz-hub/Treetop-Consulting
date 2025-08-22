@@ -14,6 +14,9 @@ import Why from "./Why";
 import Services from "./Services";
 import AboutUs from "./AboutUs";
 import Recommended from "./Recommended";
+import Testimonials from "./Testimonials";
+import BlogSection from "./BlogSection";
+import CurrentJobs from "./CurrentJobs";
 
 // Motion wrappers
 const MotionBox = motion(Box);
@@ -85,6 +88,7 @@ export default function Home() {
               to help you succeed.
             </Text>
 
+            {/* Updated Buttons */}
             <Stack
               direction={{ base: "column", sm: "row" }}
               spacing={4}
@@ -96,30 +100,34 @@ export default function Home() {
               <Button
                 size="lg"
                 colorScheme="blue"
-                onClick={() => navigate("/jobseeker-auth")}
                 boxShadow="lg"
                 whiteSpace="normal"
                 textAlign="center"
-                _hover={{
-                  transform: "translateY(-2px)",
-                  boxShadow: "xl",
-                }}
+                _hover={{ transform: "translateY(-2px)", boxShadow: "xl" }}
                 transition="all 0.3s ease"
+                onClick={() => {
+                  const savedUser = JSON.parse(
+                    localStorage.getItem("jobseeker_user")
+                  );
+                  if (savedUser) {
+                    navigate("/jobseeker-dashboard");
+                  } else {
+                    navigate("/jobseeker-profile");
+                  }
+                }}
               >
                 Job Seeker – Sign Up / Login
               </Button>
+
               <Button
                 size="lg"
                 colorScheme="green"
-                onClick={() => navigate("/employer-auth")}
                 boxShadow="lg"
                 whiteSpace="normal"
                 textAlign="center"
-                _hover={{
-                  transform: "translateY(-2px)",
-                  boxShadow: "xl",
-                }}
+                _hover={{ transform: "translateY(-2px)", boxShadow: "xl" }}
                 transition="all 0.3s ease"
+                onClick={() => navigate("/employer-auth")}
               >
                 Employer – Sign Up / Login
               </Button>
@@ -154,9 +162,13 @@ export default function Home() {
 
       {/* Additional Sections */}
       <Why />
+      <CurrentJobs />
       <Services />
       <AboutUs />
+      <Testimonials />
       <Recommended />
+      <BlogSection />
     </>
   );
 }
+

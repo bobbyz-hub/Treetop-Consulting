@@ -80,7 +80,6 @@ export default function ServicePage() {
           icon={FaBullseye}
           title="Strategic Hire"
           text="The greatest asset of every organization is its employees. We ensure the right hires—especially at managerial levels—to maximize ROI and prevent costly recruitment errors."
-          image="/images/strategic-hire.webp"
           cardBg={cardBg}
           cardBorder={cardBorder}
         />
@@ -89,7 +88,6 @@ export default function ServicePage() {
           icon={FaChartLine}
           title="Actuarial Placement"
           text="Actuaries play a critical role in organizational sustainability through skills in Financial Valuations, Modelling, Pricing, Product Development, and Underwriting. We champion the value of Actuarial Professionals and connect clients directly with them."
-          image="/images/actuarial.webp"
           cardBg={cardBg}
           cardBorder={cardBorder}
         />
@@ -142,7 +140,6 @@ export default function ServicePage() {
             "HR Strategist for Employee Management",
             "Training/Development Personnel for periodic training programs",
           ]}
-          image="/images/personnel.webp"
           cardBg={cardBg}
           cardBorder={cardBorder}
         />
@@ -157,7 +154,6 @@ export default function ServicePage() {
             "Coordination of handover process",
             "Employees Career Progression consultation upon exit",
           ]}
-          image="/images/exit.webp"
           cardBg={cardBg}
           cardBorder={cardBorder}
         />

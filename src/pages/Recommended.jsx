@@ -14,6 +14,11 @@ export default function Recommended() {
     "./images/Rp.png",
     "./images/sign.png",
     "./images/wakacredit.png",
+    "./images/bird.jpg",
+    "./images/asc.jpeg",
+    "./images/gilpins.jpg",
+    "./images/ideo.jpg",
+    "./images/farm.jpg",
   ];
 
   return (

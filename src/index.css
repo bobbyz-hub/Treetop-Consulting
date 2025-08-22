@@ -12,3 +12,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* slick-carousel default styles */
+.slick-slider {
+  overflow: hidden;
+}
+.slick-slide {
+  padding: 10px;
+}
+.slick-dots li button:before {
+  color: #2b6cb0; /* customize dot color */
+}
