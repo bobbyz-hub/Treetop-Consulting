@@ -108,7 +108,6 @@ export default function ServicePage() {
             "Leadership Based Assessment",
             "Technical Skills Assessment",
           ]}
-          image="/images/methodology.webp"
           cardBg={cardBg}
           cardBorder={cardBorder}
         />
