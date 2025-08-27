@@ -18,7 +18,7 @@ import {
   // Nigerian Testimonials
   const testimonials = [
     {
-      name: "Chiamaka Okafor",
+      name: "Chukudi Okafor",
       role: "Software Developer",
       feedback:
         "This platform made my job search easy. I got interviews within a week!",
@@ -46,7 +46,7 @@ import {
       image: "/images/face4.webp",
     },
     {
-      name: "Ngozi Eze",
+      name: "Olivia Li Min",
       role: "Project Manager",
       feedback:
         "We’ve been able to recruit qualified professionals quickly and efficiently.",

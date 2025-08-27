@@ -19,6 +19,9 @@ export default function Recommended() {
     "./images/gilpins.jpg",
     "./images/ideo.jpg",
     "./images/farm.jpg",
+    "./images/apogee.png",
+    "./images/cleftrock.png",
+    "./images/interior.png",
   ];
 
   return (

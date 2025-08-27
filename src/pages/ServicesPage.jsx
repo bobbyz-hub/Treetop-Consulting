@@ -60,7 +60,7 @@ export default function ServicePage() {
         {/* Service Sections */}
         <Section
           icon={FaUserTie}
-          title="Recruitment / Selection"
+          title="Recruitment | Selection"
           text="We recruit across different sectors with focus on Lower level to Top Executive Management positions. Our Recruitment & Selection process is designed to meet business needs in relation to the categories below."
           image="/images/small-meeting.webp"
           cardBg={cardBg}
@@ -69,7 +69,7 @@ export default function ServicePage() {
 
         <Section
           icon={FaSearch}
-          title="Executive Search / Headhunting"
+          title="Executive Search | Headhunting"
           text="The essence of strategic, goal-driven, and transformational professionals at executive management level can never be over-emphasized. As a Strategic HR Solutions provider, we partner with top-tier and reputable brands to target high-caliber talent for key executive roles."
           image="/images/discuss-business.webp"
           cardBg={cardBg}

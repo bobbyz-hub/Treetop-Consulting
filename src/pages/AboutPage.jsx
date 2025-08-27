@@ -111,7 +111,7 @@ export default function AboutUs() {
           </MotionHeading>
           <Text> 
             Promoting and recruiting the best-qualified people, and recognizing and encouraging
-            the value of diversity in the workplace
+            the value of diversity in the workplace.
           <MotionHeading
             as="h2"
             textAlign="center"

@@ -15,13 +15,13 @@ export default function Services() {
   };
   const services = [
     {
-      title: "Recruitment / Selection",
+      title: "Recruitment | Selection",
       description:
         "We recruit across different sectors with focus on Lower level to Top Executive Management positions. Our Recruitment & Selection process is designed to meet business needs in relation to the categories below.",
       icon: FaUsers
     },
     {
-      title: "Psychometric Assessment / Assessment Center",
+      title: "Psychometric Assessment | Assessment Center",
       description:
         "One major setback in recruitment is Recruitment Error; some organizations have fallen into the hurdle of bad hire, due to ineffective recruitment process.",
       icon: FaClipboardCheck
