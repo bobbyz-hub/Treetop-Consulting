@@ -6,8 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import JobSeekerAuth from "./pages/JobSeekerAuth";
 import EmployerAuth from "./pages/EmployerAuth";
-import JobSeekerProfile from "./pages/JobSeekerProfile";
-import EmployerProfile from "./pages/EmployerProfile";
 import JobSeekerForm from "./pages/JobSeekerForm";
 import CompanyRequestForm from "./pages/CompanyRequestForm";
 import ServicesPage from "./pages/ServicesPage";
@@ -18,32 +16,40 @@ import theme from "./theme";
 import App from "./App";
 import Testimonials from "./pages/Testimonials";
 import Blogs from "./pages/Blogs";
-import JobSeekerDashboard from "./pages/JobSeekerDashboard";
 import JobSeekerProfileDashboard from "./pages/JobSeekerProfileDashboard";
+import EmployerProfileDashboard from "./pages/EmployerProfileDashboard";
 
-// Create a single router with all routes
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,          // If App is a layout wrapper; else use <Home />
-    errorElement: <ErrorPage />, // Catches any errors for this branch
+    element: <App />,          
+    errorElement: <ErrorPage />, 
     children: [
       { index: true, element: <Home /> },
       { path: "jobseeker-auth", element: <JobSeekerAuth /> },
       { path: "employer-auth", element: <EmployerAuth /> },
-      { path: "jobseeker-profilee", element: <JobSeekerProfile /> },
-      { path: "employer-profile", element: <EmployerProfile /> },
+
+      // ✅ Employer Routes
+      { path: "employer-profile", element: <EmployerProfileDashboard /> },
+      { path: "employer-dashboard", element: <EmployerProfileDashboard /> },
+
+      // ✅ Jobseeker Routes
+      { path: "jobseeker-profile", element: <JobSeekerProfileDashboard /> },
+      { path: "jobseeker-dashboard", element: <JobSeekerProfileDashboard /> },
+
+      // ✅ Forms
       { path: "jobseeker", element: <JobSeekerForm /> },
       { path: "employer", element: <CompanyRequestForm /> },
+
+      // ✅ Static Pages
       { path: "services", element: <ServicesPage /> },
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <ContactPage /> },
       { path: "testimonials", element: <Testimonials /> },
       { path: "blogs", element: <Blogs /> },
-      { path: "jobSeekerDashboard", element: <JobSeekerDashboard /> },
-      { path: "jobseeker-profile", element: <JobSeekerProfileDashboard /> },
-      { path: "jobseeker-dashboard", element: <JobSeekerProfileDashboard /> },
-      { path: "*", element: <ErrorPage /> }, // Catch all invalid routes
+
+      // ✅ Catch-all
+      { path: "*", element: <ErrorPage /> },
     ],
   },
 ]);

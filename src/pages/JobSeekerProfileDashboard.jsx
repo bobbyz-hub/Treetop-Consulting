@@ -132,6 +132,10 @@ import {
             </Stack>
           ) : (
             <VStack align="start" spacing={3}>
+              <Text>
+                <strong>Photo:</strong>{" "}
+                {user.photo && <Avatar src={user.photo} size="xl" />}
+              </Text>
               <Text><strong>Name:</strong> {user.name}</Text>
               <Text><strong>Email:</strong> {user.email}</Text>
               <Text><strong>Phone:</strong> {user.phone}</Text>
@@ -144,10 +148,7 @@ import {
                   <Link href={user.cv} target="_blank" color="teal.500">{user.cvName}</Link>
                 ) : "No CV uploaded"}
               </Text>
-              <Text>
-                <strong>Photo:</strong>{" "}
-                {user.photo && <Avatar src={user.photo} size="sm" />}
-              </Text>
+              
   
               <Stack direction="row" spacing={4} mt={4}>
                 <Button colorScheme="blue" onClick={() => setEditMode(true)}>Edit Profile</Button>

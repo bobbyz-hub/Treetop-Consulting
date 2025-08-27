@@ -98,7 +98,7 @@ export default function JobSeekerForm() {
                 <FormLabel>Job Title</FormLabel>
                 <Input
                   name="jobTitle"
-                  placeholder="e.g. Frontend Developer"
+                  placeholder="e.g. Secretary"
                   value={formData.jobTitle}
                   onChange={handleChange}
                 />

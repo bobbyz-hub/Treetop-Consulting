@@ -105,16 +105,7 @@ export default function Home() {
                 textAlign="center"
                 _hover={{ transform: "translateY(-2px)", boxShadow: "xl" }}
                 transition="all 0.3s ease"
-                onClick={() => {
-                  const savedUser = JSON.parse(
-                    localStorage.getItem("jobseeker_user")
-                  );
-                  if (savedUser) {
-                    navigate("/jobseeker-dashboard");
-                  } else {
-                    navigate("/jobseeker-profile");
-                  }
-                }}
+                onClick={() => navigate("/jobseeker-auth")}
               >
                 Job Seeker – Sign Up / Login
               </Button>
