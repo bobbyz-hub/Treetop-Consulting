@@ -12,10 +12,11 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-const MotionHeading = motion(Box);
+const MotionHeading = motion(Heading);
 
-// Nigerian Testimonials
+// Testimonials data
 const testimonials = [
   {
     name: "kayode Olufemi",
@@ -54,9 +55,8 @@ const testimonials = [
   },
 ];
 
-// Custom Arrow Components
-function SampleNextArrow(props) {
-  const { onClick } = props;
+// Custom Arrows (desktop only)
+function SampleNextArrow({ onClick }) {
   return (
     <IconButton
       aria-label="Next"
@@ -72,13 +72,12 @@ function SampleNextArrow(props) {
       rounded="full"
       shadow="lg"
       zIndex={2}
-      display={{ base: "none", md: "flex" }} // hide on mobile
+      display={{ base: "none", lg: "flex" }} // only desktop
     />
   );
 }
 
-function SamplePrevArrow(props) {
-  const { onClick } = props;
+function SamplePrevArrow({ onClick }) {
   return (
     <IconButton
       aria-label="Previous"
@@ -94,41 +93,45 @@ function SamplePrevArrow(props) {
       rounded="full"
       shadow="lg"
       zIndex={2}
-      display={{ base: "none", md: "flex" }} // hide on mobile
+      display={{ base: "none", lg: "flex" }} // only desktop
     />
   );
 }
 
 export default function Testimonials() {
+  const [slidesToShow, setSlidesToShow] = useState(3);
+
+  // ✅ Fix: detect screen size on mount + resize
+  useEffect(() => {
+    const updateSlides = () => {
+      if (window.innerWidth < 768) {
+        setSlidesToShow(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(2);
+      } else {
+        setSlidesToShow(3);
+      }
+    };
+    updateSlides(); // run on mount
+    window.addEventListener("resize", updateSlides);
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
     speed: 600,
-    slidesToShow: 3,
+    slidesToShow: slidesToShow, // controlled by state
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 1 },
-      },
-      {
-        breakpoint: 480,
-        settings: { slidesToShow: 1 },
-      },
-    ],
   };
 
   return (
     <Box bg="gray.50" py={16} position="relative">
-      <Container maxW="6xl">
+      <Container maxW={{ base: "full", md: "6xl" }} px={{ base: 2, md: 0 }}>
         <MotionHeading
           as="h2"
           textAlign="center"
@@ -147,6 +150,7 @@ export default function Testimonials() {
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
+          mb={10}
         >
           What People Are Saying
         </MotionHeading>
@@ -156,13 +160,13 @@ export default function Testimonials() {
             <Box
               key={index}
               p={6}
-              mx={{ base: 0, md: 3 }} // no side gaps on mobile
+              mx={{ base: 0, md: 3 }}
               rounded="2xl"
               shadow="lg"
               bg="white"
               _hover={{ shadow: "2xl" }}
               textAlign="center"
-              w={{ base: "100%", md: "auto" }} // full width on mobile
+              w="100%"
             >
               <Stack spacing={4} align="center">
                 <Avatar src={t.image} size="xl" />
