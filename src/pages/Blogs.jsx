@@ -46,10 +46,12 @@ import {
             fontWeight="bold"
             bgGradient="linear(to-r, blue.500, green.400, blue.500)"
             bgClip="text"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            initial={{ backgroundPosition: "200% center" }}
+            whileInView={{
+              backgroundPosition: ["200% center", "-200% center"],
+              transition: { duration: 3, ease: "linear", repeat: Infinity },
+            }}
+            viewport={{ once: false }}
             sx={{
               backgroundSize: "200% auto",
               WebkitBackgroundClip: "text",
