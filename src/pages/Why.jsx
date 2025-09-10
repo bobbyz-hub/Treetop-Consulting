@@ -37,16 +37,11 @@ export default function Why() {
     })
   };
 
-  // Glow + bounce for icons
+  // Bounce animation for icons
   const iconVariants = {
     hidden: { scale: 0 },
     visible: (i) => ({
       scale: [0, 1.3, 1],
-      boxShadow: [
-        "0 0 0px rgba(0, 255, 0, 0)",
-        "0 0 10px rgba(72, 187, 120, 0.8)",
-        "0 0 5px rgba(72, 187, 120, 0.4)"
-      ],
       transition: {
         delay: i * 0.3,
         duration: 0.8,
@@ -129,6 +124,12 @@ export default function Why() {
                     boxSize={6}
                     variants={iconVariants}
                     custom={index}
+                    borderRadius="full"
+                    cursor="pointer"
+                    transition="all 0.3s ease-in-out"
+                    _hover={{
+                      boxShadow: "0 0 12px rgba(72, 187, 120, 0.8), 0 0 6px rgba(72, 187, 120, 0.4)"
+                    }}
                   />
                   <Text fontSize="lg" color="gray.700">
                     {text}
@@ -142,4 +143,3 @@ export default function Why() {
     </Box>
   );
 }
-

@@ -47,10 +47,10 @@ export default function App() {
             {/* Logo + Brand */}
             <Flex align="center">
               <Image
-                src="/images/Treetop-site-logo.jpg"
+                src="/images/TreetopSiteLogo.webp"
                 alt="company logo"
                 boxSize="50px"
-                objectFit="contain"
+                objectFit="cover"
                 mr={3}
                 borderRadius="md"
                 boxShadow="lg"

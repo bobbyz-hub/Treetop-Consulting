@@ -73,7 +73,7 @@ import {
                 <Icon as={FaEnvelope} color="blue.500" boxSize={5} />
                 <Box>
                   <Text fontWeight="bold">Email Address</Text>
-                  <Text>Akintola.a@consultreetop.com</Text>
+                  <Text>info@consulttreetop.com</Text>
                 </Box>
               </HStack>
             </VStack>
