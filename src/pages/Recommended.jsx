@@ -22,6 +22,7 @@ export default function Recommended() {
     "./images/apogee.png",
     "./images/cleftrock.png",
     "./images/interior.png",
+    "./images/liqz-chillz.JPEG",
   ];
 
   return (
